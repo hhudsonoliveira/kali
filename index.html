@@ -1,0 +1,450 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<meta name="description" content="Proposta para a FisioKali: site institucional com agendamento online, painel de controle, Google Meu Negócio e SEO local.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Proposta · Site FisioKali">
+<meta property="og:description" content="Site para a clínica e os cursos, com agendamento online 24h e painel de controle.">
+<meta name="theme-color" content="#2C6A4E">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%232C6A4E'/%3E%3Ctext x='16' y='22' font-family='Georgia,serif' font-size='18' text-anchor='middle' fill='%23fff'%3EK%3C/text%3E%3C/svg%3E">
+<title>Proposta Site FisioKali</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Young+Serif&family=Figtree:wght@400;500;600;700&display=swap">
+<style>
+/* Layout: coluna única de leitura (proposta), com demo de agendamento e painel como objetos destacados */
+:root{
+  --bg:#F5F8F5; --surface:#FFFFFF; --ink:#16231D; --muted:#56675E;
+  --green:#2C6A4E; --green-soft:#E2EEE6; --rose:#BF4F76; --rose-soft:#F8E3EA;
+  --line:#D8E2DB; --on-green:#FFFFFF;
+  --display:"Young Serif", Georgia, "Times New Roman", serif;
+  --body:"Figtree", system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#0E1512; --surface:#151F1A; --ink:#E6EEE9; --muted:#9BABA2;
+  --green:#72C29A; --green-soft:#1A2C22; --rose:#E68DAB; --rose-soft:#2F1C24;
+  --line:#25322B; --on-green:#0E1512; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#0E1512; --surface:#151F1A; --ink:#E6EEE9; --muted:#9BABA2;
+  --green:#72C29A; --green-soft:#1A2C22; --rose:#E68DAB; --rose-soft:#2F1C24;
+  --line:#25322B; --on-green:#0E1512; color-scheme:dark}
+
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:17px;line-height:1.6;margin:0;padding-inline:20px}
+.wrap{max-width:760px;margin:0 auto;padding-block:56px 80px;display:flex;flex-direction:column;gap:72px}
+h1,h2,h3{font-family:var(--display);font-weight:400;line-height:1.15;text-wrap:balance;margin:0}
+h1{font-size:clamp(2.2rem,6vw,3.4rem)}
+h2{font-size:clamp(1.6rem,4vw,2.1rem)}
+h3{font-size:1.2rem}
+p{margin:0;max-width:65ch}
+.eyebrow{font-size:.78rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--green)}
+.muted{color:var(--muted)}
+section{display:flex;flex-direction:column;gap:20px}
+.num{font-variant-numeric:tabular-nums}
+
+/* Hero */
+.hero{gap:24px}
+.meta{display:flex;flex-wrap:wrap;gap:8px 24px;font-size:.9rem;color:var(--muted);border-top:1px solid var(--line);padding-top:16px}
+.meta b{color:var(--ink);font-weight:600}
+.lead{font-size:1.2rem;color:var(--ink)}
+.rose{color:var(--rose)}
+
+/* Números */
+.facts{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line);border-radius:14px;overflow:hidden}
+.fact{background:var(--surface);padding:18px;display:flex;flex-direction:column;gap:4px;min-width:0}
+.fact strong{font-family:var(--display);font-weight:400;font-size:1.9rem;color:var(--green)}
+.fact span{font-size:.88rem;color:var(--muted);line-height:1.4}
+@media (max-width:560px){.facts{grid-template-columns:1fr}}
+
+/* Entregas */
+.deliver{display:flex;flex-direction:column;border-top:1px solid var(--line)}
+.item{display:grid;grid-template-columns:200px 1fr;gap:20px;padding-block:22px;border-bottom:1px solid var(--line)}
+.item h3{color:var(--ink)}
+.item ul{margin:8px 0 0;padding-left:18px;color:var(--muted)}
+.item ul li{margin-top:4px}
+.item>div{min-width:0}
+@media (max-width:620px){.item{grid-template-columns:1fr;gap:6px}}
+
+/* Demo de agendamento */
+.demo{background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:24px;display:flex;flex-direction:column;gap:20px;box-shadow:0 10px 30px -18px rgba(20,50,35,.35)}
+.demo-top{display:flex;justify-content:space-between;align-items:baseline;flex-wrap:wrap;gap:8px}
+.tag{font-size:.75rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;background:var(--rose-soft);color:var(--rose);padding:4px 10px;border-radius:999px}
+.step{display:flex;flex-direction:column;gap:10px}
+.step-label{font-size:.85rem;font-weight:600;color:var(--muted)}
+.step-label i{font-style:normal;color:var(--green);margin-right:6px}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{font:inherit;font-size:.92rem;border:1px solid var(--line);background:var(--bg);color:var(--ink);padding:8px 14px;border-radius:10px;cursor:pointer;transition:background .15s,border-color .15s}
+.chip:hover{border-color:var(--green)}
+.chip[aria-pressed="true"]{background:var(--green);border-color:var(--green);color:var(--on-green)}
+.chip:disabled{opacity:.38;cursor:not-allowed;text-decoration:line-through}
+.chip:focus-visible,.btn:focus-visible{outline:2px solid var(--rose);outline-offset:2px}
+.chip small{display:block;font-size:.72rem;opacity:.8}
+.confirm{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:12px;border-top:1px dashed var(--line);padding-top:16px}
+.summary{font-size:.95rem;min-width:0}
+.btn{font:inherit;font-weight:600;background:var(--rose);color:#fff;border:0;padding:12px 20px;border-radius:10px;cursor:pointer}
+.btn:disabled{opacity:.4;cursor:not-allowed}
+.ok{background:var(--green-soft);color:var(--ink);border-radius:12px;padding:14px 16px;font-size:.95rem}
+
+/* Painel */
+.panel{background:var(--surface);border:1px solid var(--line);border-radius:18px;overflow:hidden}
+.panel-head{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px;padding:16px 20px;border-bottom:1px solid var(--line)}
+.panel-stats{display:flex;gap:20px;flex-wrap:wrap;font-size:.85rem;color:var(--muted)}
+.panel-stats b{color:var(--ink);font-size:1.05rem;margin-right:4px}
+.tbl-wrap{overflow-x:auto}
+table{width:100%;border-collapse:collapse;font-size:.92rem;min-width:520px}
+th,td{text-align:left;padding:12px 20px;border-bottom:1px solid var(--line)}
+th{font-size:.75rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);font-weight:600}
+tr:last-child td{border-bottom:0}
+.pill{display:inline-block;font-size:.75rem;font-weight:600;padding:3px 9px;border-radius:999px}
+.pill.c{background:var(--green-soft);color:var(--green)}
+.pill.p{background:var(--rose-soft);color:var(--rose)}
+
+/* Etapas */
+.steps{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:0;counter-reset:s}
+.steps li{display:grid;grid-template-columns:44px 1fr;gap:16px;padding-block:14px;counter-increment:s}
+.steps li::before{content:counter(s);font-family:var(--display);font-size:1.3rem;color:var(--green);width:44px;height:44px;border:1px solid var(--line);border-radius:50%;display:grid;place-items:center}
+.steps li>div{min-width:0}
+.steps b{display:block}
+
+/* Checklist */
+.check{display:grid;grid-template-columns:1fr 1fr;gap:8px 24px;margin:0;padding:0;list-style:none}
+.check li{padding-left:26px;position:relative}
+.check li::before{content:"";position:absolute;left:0;top:.45em;width:14px;height:14px;border:1.5px solid var(--green);border-radius:4px}
+@media (max-width:560px){.check{grid-template-columns:1fr}}
+
+/* Investimento */
+.price{background:var(--green);color:var(--on-green);border-radius:22px;padding:32px;display:flex;flex-direction:column;gap:22px}
+.price .eyebrow{color:var(--on-green);opacity:.8}
+.price-main{display:flex;flex-wrap:wrap;align-items:baseline;gap:6px 18px}
+.price-main .big{font-family:var(--display);font-size:clamp(2.6rem,9vw,4rem);line-height:1}
+.price-main .or{font-size:1.05rem;opacity:.9}
+.price ul{margin:0;padding:0;list-style:none;display:grid;grid-template-columns:1fr 1fr;gap:8px 24px}
+.price li{padding-left:22px;position:relative}
+.price li::before{content:"✓";position:absolute;left:0;font-weight:700}
+@media (max-width:560px){.price ul{grid-template-columns:1fr}}
+.price-note{border-top:1px solid color-mix(in srgb,var(--on-green) 30%,transparent);padding-top:18px;display:flex;flex-direction:column;gap:6px;font-size:.95rem}
+.calc{background:var(--rose-soft);border-radius:14px;padding:18px 20px}
+.calc p{max-width:none}
+
+.extra{border:1px solid var(--line);border-radius:14px;padding:20px;display:flex;flex-direction:column;gap:8px;background:var(--surface)}
+.extra-head{display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;align-items:baseline}
+.extra-head strong{font-family:var(--display);font-weight:400;font-size:1.4rem}
+
+.cta{text-align:left;gap:14px}
+.sign{font-size:.9rem;color:var(--muted);border-top:1px solid var(--line);padding-top:16px}
+.sign a{color:var(--green);font-weight:600}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+
+<div class="wrap">
+
+  <header class="hero">
+    <span class="eyebrow">Proposta comercial · Site institucional</span>
+    <h1>FisioKali com a agenda aberta <span class="rose">24 horas por dia</span>.</h1>
+    <p class="lead">Um site para a clínica e para os cursos, onde o paciente escolhe o serviço, o profissional e o horário, e agenda sozinho. Você acompanha tudo em um painel.</p>
+    <div class="meta">
+      <span>Para <b>Dra. Kaliane Oliveira</b></span>
+      <span>FisioKali Pilates & Saúde · FisioKali Cursos</span>
+      <span>Emitida em <b class="num">06/10/2026</b> · válida por 48h, até <b class="num">08/10/2026</b></span>
+    </div>
+  </header>
+
+  <section>
+    <span class="eyebrow">Onde a FisioKali está hoje</span>
+    <h2>Cinco anos de história e uma audiência pronta para agendar.</h2>
+    <div class="facts">
+      <div class="fact"><strong class="num">7.611</strong><span>seguidores somando @clinfisiokali e @fisiokalicursos</span></div>
+      <div class="fact"><strong class="num">5 anos</strong><span>de clínica, com reportagem no jornal Massa (Grupo A Tarde)</span></div>
+      <div class="fact"><strong class="num">2</strong><span>WhatsApps diferentes recebendo pedidos de agendamento à mão</span></div>
+    </div>
+    <p>Hoje todo agendamento passa por alguém respondendo mensagem. Quem quer marcar um pilates às 23h ou num domingo espera até o dia seguinte e, muitas vezes, desiste. Quem busca <em>"pilates Caminho das Árvores"</em> ou <em>"curso de massoterapia Salvador"</em> no Google precisa cair direto em uma página da FisioKali, com botão de agendar.</p>
+    <p>O site resolve as duas coisas: <b>a FisioKali passa a ser encontrada</b> e <b>o paciente marca sem depender de ninguém responder</b>.</p>
+  </section>
+
+  <section>
+    <span class="eyebrow">O que você recebe</span>
+    <h2>Tudo o que entra no projeto</h2>
+    <div class="deliver">
+      <div class="item">
+        <h3>Site institucional</h3>
+        <div>
+          <p class="muted">Uma marca e duas áreas: <b>Clínica</b> e <b>Cursos</b>. Feito para o celular, que é por onde seus pacientes chegam.</p>
+          <ul>
+            <li>Página inicial com a história dos 5 anos e a reportagem</li>
+            <li>Serviços da clínica: pilates, fisioterapia, RPG e quiropraxia, massoterapia, estética, reflexologia e naturopatia</li>
+            <li>Equipe, com foto e especialidade de cada profissional</li>
+            <li>Cursos: Massoterapia Avançada Integrada (120h) e cursos livres com as próximas datas</li>
+            <li>Localização (Ed. Advanced Trade, sala 606) e os dois WhatsApps no lugar certo</li>
+          </ul>
+        </div>
+      </div>
+      <div class="item">
+        <h3>Agendamento online</h3>
+        <div>
+          <p class="muted">O paciente escolhe o serviço, o profissional, o dia e o horário livre, e confirma. Os horários já ocupados nem aparecem como opção.</p>
+          <ul>
+            <li>Agenda separada por profissional, respeitando os dias de cada um (ex.: Quele aos sábados)</li>
+            <li>Sem conflito de horário e sem precisar responder mensagem para marcar</li>
+          </ul>
+        </div>
+      </div>
+      <div class="item">
+        <h3>Painel de controle</h3>
+        <div>
+          <p class="muted">Sua área com login para ver e gerenciar todos os agendamentos.</p>
+          <ul>
+            <li>Agenda do dia e da semana, com filtro por profissional e por serviço</li>
+            <li>Bloquear horários, cancelar e remarcar</li>
+            <li>Contato do paciente a um clique</li>
+          </ul>
+        </div>
+      </div>
+      <div class="item">
+        <h3>Google Meu Negócio</h3>
+        <div>
+          <p class="muted">O perfil da FisioKali no Google e no Maps configurado do jeito certo.</p>
+          <ul>
+            <li>Categoria correta (fisioterapia e pilates), horários, fotos e serviços</li>
+            <li>Botão de agendamento ligando direto ao site</li>
+          </ul>
+        </div>
+      </div>
+      <div class="item">
+        <h3>SEO local</h3>
+        <div>
+          <p class="muted">O site é construído para aparecer quando alguém em Salvador procura o que a FisioKali faz.</p>
+          <ul>
+            <li>Páginas pensadas para buscas como "pilates Salvador", "fisioterapia Caminho das Árvores" e "curso de drenagem linfática Salvador"</li>
+            <li>Site rápido, com títulos, descrições e dados de localização configurados para o Google</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <span class="eyebrow">Experimente</span>
+    <h2>É assim que o seu paciente vai agendar</h2>
+    <p class="muted">Clique nas opções abaixo. Os serviços e os profissionais são os da FisioKali. Os horários são só um exemplo.</p>
+
+    <div class="demo" id="demo">
+      <div class="demo-top">
+        <h3>Agende seu horário</h3>
+        <span class="tag">Demonstração</span>
+      </div>
+      <div class="step">
+        <span class="step-label"><i>1</i>Serviço</span>
+        <div class="chips" id="services"></div>
+      </div>
+      <div class="step" id="step-pro" hidden>
+        <span class="step-label"><i>2</i>Profissional</span>
+        <div class="chips" id="pros"></div>
+      </div>
+      <div class="step" id="step-day" hidden>
+        <span class="step-label"><i>3</i>Dia</span>
+        <div class="chips" id="days"></div>
+      </div>
+      <div class="step" id="step-time" hidden>
+        <span class="step-label"><i>4</i>Horário</span>
+        <div class="chips" id="times"></div>
+      </div>
+      <div class="confirm">
+        <div class="summary" id="summary">Escolha um serviço para começar.</div>
+        <button class="btn" id="book" type="button" disabled>Confirmar agendamento</button>
+      </div>
+      <div class="ok" id="ok" hidden></div>
+    </div>
+  </section>
+
+  <section>
+    <span class="eyebrow">Seu painel</span>
+    <h2>Você vê cada agendamento assim que ele entra</h2>
+    <div class="panel">
+      <div class="panel-head">
+        <h3>Agenda de hoje</h3>
+        <div class="panel-stats num"><span><b>9</b>agendamentos</span><span><b>4</b>profissionais</span><span><b>2</b>horários livres</span></div>
+      </div>
+      <div class="tbl-wrap">
+        <table>
+          <thead><tr><th>Hora</th><th>Paciente</th><th>Serviço</th><th>Profissional</th><th>Status</th></tr></thead>
+          <tbody class="num">
+            <tr><td>07:00</td><td>Mariana S.</td><td>Pilates</td><td>Samuel Garcia</td><td><span class="pill c">Confirmado</span></td></tr>
+            <tr><td>08:00</td><td>Roberto A.</td><td>Fisioterapia</td><td>Kaliane Oliveira</td><td><span class="pill c">Confirmado</span></td></tr>
+            <tr><td>09:30</td><td>Juliana P.</td><td>Massoterapia</td><td>Victoria Santos</td><td><span class="pill p">Novo, pelo site</span></td></tr>
+            <tr><td>10:00</td><td>Cláudia M.</td><td>Limpeza de pele</td><td>Rebeca da Mata</td><td><span class="pill c">Confirmado</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <p class="muted" style="font-size:.88rem">Nomes e horários ilustrativos.</p>
+  </section>
+
+  <section>
+    <span class="eyebrow">Como funciona</span>
+    <h2>Do sim ao site no ar em poucos dias</h2>
+    <ol class="steps">
+      <li><div><b>Aprovação</b><span class="muted">Você aprova a proposta e escolhe a forma de pagamento.</span></div></li>
+      <li><div><b>Envio do material</b><span class="muted">Você manda tudo da lista abaixo. O prazo começa a contar aqui.</span></div></li>
+      <li><div><b>Construção, em 5 a 7 dias úteis</b><span class="muted">Site, agendamento, painel, Google Meu Negócio e SEO.</span></div></li>
+      <li><div><b>Revisão e publicação</b><span class="muted">Você testa, pede os ajustes e o site vai ao ar.</span></div></li>
+      <li><div><b>30 dias de suporte</b><span class="muted">Qualquer ajuste no primeiro mês está incluso.</span></div></li>
+    </ol>
+  </section>
+
+  <section>
+    <span class="eyebrow">O que preciso de você</span>
+    <h2>Material para começar</h2>
+    <ul class="check">
+      <li>Logo da FisioKali e da FisioKali Cursos</li>
+      <li>Fotos da clínica, da equipe e das aulas</li>
+      <li>Vídeos (o da reportagem, por exemplo)</li>
+      <li>Textos de apresentação</li>
+      <li>Lista de serviços, com a duração de cada um</li>
+      <li>Profissionais, os serviços de cada um e os dias e horários em que atendem</li>
+      <li>Horário de funcionamento da clínica</li>
+      <li>Cursos, com datas, carga horária e conteúdo</li>
+    </ul>
+  </section>
+
+  <section>
+    <span class="eyebrow">Investimento</span>
+    <div class="price">
+      <span class="eyebrow">Projeto completo</span>
+      <div class="price-main">
+        <span class="big num">R$ 1.500</span>
+        <span class="or num">ou em até 12x no cartão (com a taxa do cartão)</span>
+      </div>
+      <ul>
+        <li>Site institucional (clínica + cursos)</li>
+        <li>Agendamento online</li>
+        <li>Painel de controle</li>
+        <li>Google Meu Negócio</li>
+        <li>SEO local</li>
+        <li>30 dias de suporte para ajustes</li>
+      </ul>
+      <div class="price-note">
+        <span><b>Prazo:</b> 5 a 7 dias úteis depois do recebimento do material.</span>
+        <span><b>Domínio e hospedagem:</b> não estão inclusos no valor. São contratados no nome da FisioKali e pagos diretamente por ela. Eu cuido de toda a configuração.</span>
+      </div>
+    </div>
+
+    <div class="calc">
+      <p><b>A conta é simples.</b> Parcelado em 12x, o investimento fica em cerca de R$ 125 por mês, mais a taxa do cartão. Se o site trouxer uma pessoa nova para o pilates, para a fisioterapia ou para uma turma de curso por mês, ele já se pagou. Todo o resto é lucro, e o tempo que hoje vai para responder mensagem volta para você.</p>
+    </div>
+
+    <div class="extra">
+      <div class="extra-head">
+        <h3>Manutenção mensal (opcional)</h3>
+        <strong class="num">R$ 250/mês</strong>
+      </div>
+      <p class="muted">Começa depois dos 30 dias de suporte e só se você quiser. Cobre atualização de conteúdo, como novas turmas, datas de curso, profissionais e serviços, além de ajustes no site e acompanhamento para que tudo continue funcionando.</p>
+    </div>
+  </section>
+
+  <section class="cta">
+    <h2>Vamos colocar a agenda da FisioKali no ar?</h2>
+    <p>Esta proposta vale por 48 horas, até 08/10/2026. Para começar, é só responder com o seu "sim". Em seguida eu mando a lista de material, e em poucos dias seus pacientes já estarão agendando pelo site.</p>
+    <p class="sign">Hudson · Proposta preparada para a FisioKali em 06/10/2026 · <a href="Proposta-Site-FisioKali.pdf" download>Baixar em PDF</a></p>
+  </section>
+
+</div>
+
+<script>
+(function(){
+  var SERVICES = [
+    {id:"pilates", name:"Pilates", pros:["Samuel Garcia","Kaliane Oliveira"]},
+    {id:"fisio", name:"Fisioterapia", pros:["Samuel Garcia","Kaliane Oliveira"]},
+    {id:"rpg", name:"RPG e Quiropraxia", pros:["Quele Santos"], onlySat:true},
+    {id:"masso", name:"Massoterapia", pros:["Victoria Santos"]},
+    {id:"reflexo", name:"Reflexologia podal", pros:["Jacira Santos"]},
+    {id:"pele", name:"Limpeza de pele", pros:["Rebeca da Mata"]},
+    {id:"natu", name:"Naturopatia", pros:["Dr. Carlos da Paixão"]}
+  ];
+  var TIMES = ["07:00","08:00","09:00","10:00","11:00","14:00","15:00","16:00","17:00","18:00"];
+  var WD = ["Dom","Seg","Ter","Qua","Qui","Sex","Sáb"];
+  var st = {svc:null, pro:null, day:null, time:null};
+  var $ = function(id){return document.getElementById(id)};
+
+  function chip(label, sub, pressed, onClick, disabled){
+    var b = document.createElement("button");
+    b.type = "button"; b.className = "chip";
+    b.setAttribute("aria-pressed", pressed ? "true" : "false");
+    b.textContent = label;
+    if(sub){ var s=document.createElement("small"); s.textContent=sub; b.appendChild(s); }
+    if(disabled){ b.disabled = true; } else { b.addEventListener("click", onClick); }
+    return b;
+  }
+  function nextDays(onlySat){
+    var out=[], d=new Date(); d.setHours(0,0,0,0);
+    while(out.length < (onlySat?3:6)){
+      d.setDate(d.getDate()+1);
+      var w=d.getDay();
+      if(w===0) continue;
+      if(onlySat && w!==6) continue;
+      out.push(new Date(d));
+    }
+    return out;
+  }
+  function busy(day, time, pro){
+    var s = day.getDate()+time+pro, h=0;
+    for(var i=0;i<s.length;i++){ h=(h*31+s.charCodeAt(i))>>>0; }
+    return h%3===0;
+  }
+  function render(){
+    var svc = SERVICES.find(function(s){return s.id===st.svc});
+    var sv=$("services"); sv.innerHTML="";
+    SERVICES.forEach(function(s){
+      sv.appendChild(chip(s.name,null,st.svc===s.id,function(){
+        st={svc:s.id,pro:s.pros.length===1?s.pros[0]:null,day:null,time:null}; $("ok").hidden=true; render();
+      }));
+    });
+    $("step-pro").hidden = !svc;
+    if(svc){
+      var p=$("pros"); p.innerHTML="";
+      svc.pros.forEach(function(n){
+        p.appendChild(chip(n, svc.onlySat?"atende aos sábados":null, st.pro===n, function(){st.pro=n;st.day=null;st.time=null;render();}));
+      });
+    }
+    $("step-day").hidden = !(svc && st.pro);
+    if(svc && st.pro){
+      var dd=$("days"); dd.innerHTML="";
+      nextDays(svc.onlySat).forEach(function(d){
+        var key=d.toISOString().slice(0,10);
+        var lbl=WD[d.getDay()]+" "+String(d.getDate()).padStart(2,"0")+"/"+String(d.getMonth()+1).padStart(2,"0");
+        dd.appendChild(chip(lbl,null,st.day===key,function(){st.day=key;st.time=null;render();}));
+      });
+    }
+    $("step-time").hidden = !st.day;
+    if(st.day){
+      var t=$("times"); t.innerHTML="";
+      var dObj=new Date(st.day+"T12:00:00");
+      TIMES.forEach(function(h){
+        var off = busy(dObj,h,st.pro);
+        t.appendChild(chip(h,null,st.time===h,function(){st.time=h;render();},off));
+      });
+    }
+    var sum=$("summary"), btn=$("book");
+    if(st.time){
+      var d2=new Date(st.day+"T12:00:00");
+      sum.innerHTML="<b>"+svc.name+"</b> com "+st.pro+"<br><span class='muted'>"+WD[d2.getDay()]+", "+d2.toLocaleDateString("pt-BR")+" às "+st.time+"</span>";
+      btn.disabled=false;
+    } else {
+      sum.textContent = !svc ? "Escolha um serviço para começar." : !st.pro ? "Agora escolha o profissional." : !st.day ? "Escolha o dia." : "Escolha um horário livre.";
+      btn.disabled=true;
+    }
+  }
+  $("book").addEventListener("click",function(){
+    var ok=$("ok");
+    ok.textContent="Pronto. No site de verdade, o paciente recebe a confirmação e o horário aparece na hora no seu painel. Os horários riscados já estão ocupados e não podem ser escolhidos.";
+    ok.hidden=false;
+  });
+  render();
+})();
+</script>
+</body>
+</html>
